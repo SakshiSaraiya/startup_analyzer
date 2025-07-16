@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+</head>
+<body>
+    <h2>📊 Results for {{ startup_name }}</h2>
+
+    <h3>📌 Financial Health:</h3>
+    <ul>
+      {% for key, value in health.items() %}
+        <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+
+    <h3>💰 Valuation:</h3>
+    <ul>
+      {% for key, value in valuation.items() %}
+        <li>{{ key }}: ₹{{ value }}</li>
+      {% endfor %}
+    </ul>
+
+    <a href="/">🔁 Analyze Another</a>
+</body>
+</html>
