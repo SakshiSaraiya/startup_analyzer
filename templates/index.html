@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Startup Financial Tool</title>
+</head>
+<body>
+  <h2>📂 Upload Financial CSV & Enter Valuation Inputs</h2>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color:red;">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" enctype="multipart/form-data">
+    <label>Upload Financial CSV:</label>
+    <input type="file" name="financials" required><br><br>
+
+    <label>Startup Name:</label>
+    <input type="text" name="startup_name" required><br>
+
+    <label>Base Revenue (₹):</label>
+    <input type="number" name="base_revenue" required><br>
+
+    <label>Annual Growth Rate (%):</label>
+    <input type="number" name="growth_rate" value="20" required><br>
+
+    <label>EBITDA Margin (%):</label>
+    <input type="number" name="ebitda_margin" value="20" required><br>
+
+    <label>Discount Rate (%):</label>
+    <input type="number" name="discount_rate" value="15" required><br>
+
+    <label>Terminal Growth Rate (%):</label>
+    <input type="number" name="terminal_growth" value="3" required><br>
+
+    <label>Investment Horizon (Years):</label>
+    <input type="number" name="horizon" value="5" required><br>
+
+    <label>Exit Multiple (×):</label>
+    <input type="number" name="exit_multiple" value="5" required><br>
+
+    <label>Desired IRR (%):</label>
+    <input type="number" name="irr" value="30" required><br>
+
+    <label>Peer Multiple:</label>
+    <input type="number" name="peer_multiple" value="4" required><br>
+
+    <label>Metric Type:</label>
+    <select name="metric_type">
+      <option value="Revenue">Revenue</option>
+      <option value="EBITDA">EBITDA</option>
+    </select><br>
+
+    <label>Amount Raising (₹):</label>
+    <input type="number" name="amount_raising"><br><br>
+
+    <button type="submit">Analyze</button>
+  </form>
+</body>
+</html>
